@@ -8,6 +8,9 @@
     <%= application.state%>
     <%= application.zip_code%><br>
     Description: <%= application.description%><br>
-    Application Status: <%= application.status%>
+    <% application.pets.each do |pet|%>
+      Pet: <%= link_to "#{pet.name}", "pets/#{pet.id}" %>
+    <% end %><br>
+    Application Status: <%= application.status%><br>
   <% end %>
 </section>

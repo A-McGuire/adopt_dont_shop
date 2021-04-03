@@ -23,6 +23,7 @@ RSpec.describe "the Applications index page" do
     expect(page).to have_content(application1.zip_code)
     expect(page).to have_content(application1.status)
     expect(page).to have_content(application1.description)
+    expect(page).to have_content(pet1.name)
 
     # within("#playlist-#{rock.id}") do
     #   expect(page).to have_content(rock.name)
