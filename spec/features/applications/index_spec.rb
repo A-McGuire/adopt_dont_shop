@@ -15,7 +15,6 @@ RSpec.describe "the Applications index page" do
     PetApplication.create!(pet: pet3, application: application1)
     PetApplication.create!(pet: pet2, application: application2)
     
-    binding.pry
     visit '/applications'
 
     expect(page).to have_content(application1.name)
