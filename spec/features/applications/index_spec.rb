@@ -14,7 +14,7 @@ RSpec.describe "the Applications index page" do
     PetApplication.create!(pet: pet2, application: application2)
     
 
-    visit '/playlists'
+    visit '/applications'
 
     expect(page).to have_content(application1.name)
     expect(page).to have_content(application1.street_address)
