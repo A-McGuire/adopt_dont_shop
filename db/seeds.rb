@@ -13,6 +13,5 @@ pet1 = Pet.create!(adoptable: true, age: 1, breed: 'sphynx', name: 'Lucille Bald
 pet2 = Pet.create!(adoptable: true, age: 3, breed: 'doberman', name: 'Lobster', shelter_id: shelter.id)
 pet3 = Pet.create!(adoptable: true, age: 4, breed: 'Shiba', name: 'Broccoli', shelter_id: shelter.id)
 
-PetApplication.create!(pet: pet1, application: application1)
-PetApplication.create!(pet: pet3, application: application1)
-PetApplication.create!(pet: pet2, application: application2)
+application1.pets.push(pet1,pet2)
+application2.pets.push(pet1,pet3)
