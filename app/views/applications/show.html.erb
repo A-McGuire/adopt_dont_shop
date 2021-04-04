@@ -25,10 +25,17 @@
     <% if params[:search] != nil %>
       <% @pets.each do |pet|%>
         <h3><%= pet.name %></h3>
+        <%= button_to "Adopt this Pet", "/applications/#{@application.id}", params: {adopt: pet}, method: :get%>
         <p>Age: <%= pet.age %></p>
         <p>Breed: <%= pet.breed %></p>
         <p>Adoptable: </p>
         <p>You can find <%= pet.name %> at <%= pet.shelter_name %>!</p>
+      <% end %>
+    <% end %>
+    
+    <% if params[:adopt] != nil %>
+      <% @pets_to_adopt.each do |pet| %>
+        <% pet.name %>
       <% end %>
     <% end %>
   <% end %>
