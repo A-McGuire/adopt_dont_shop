@@ -14,5 +14,4 @@ RSpec.describe "Admin shelter index page" do
     (shelter_2).should appear_before(shelter_3)
     (shelter_1).should appear_before(shelter_1)
   end
-  
 end

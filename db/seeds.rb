@@ -15,3 +15,7 @@ pet3 = Pet.create!(adoptable: true, age: 4, breed: 'Shiba', name: 'Broccoli', sh
 
 application1.pets.push(pet1,pet2)
 application2.pets.push(pet1,pet3)
+
+@shelter_1 = Shelter.create(name: 'Aurora shelter', city: 'Aurora, CO', foster_program: false, rank: 9)
+@shelter_2 = Shelter.create(name: 'RGV animal shelter', city: 'Harlingen, TX', foster_program: false, rank: 5)
+@shelter_3 = Shelter.create(name: 'Fancy pets of Colorado', city: 'Denver, CO', foster_program: true, rank: 10)
