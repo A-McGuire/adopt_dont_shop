@@ -37,6 +37,8 @@
       <% @pets_to_adopt.each do |pet| %>
         <% pet.name %>
       <% end %>
+
+      <%= button_to "Submit Application", "/applications/#{@application.id}", params: {status: "Pending"}, method: :patch%>
     <% end %>
   <% end %>
 </section>
