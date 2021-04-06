@@ -25,7 +25,7 @@ RSpec.describe "new application page" do
 
     click_on 'Submit'
     
-    expect(page).to have_content("Name can't be blank, Street address can't be blank, City can't be blank, State can't be blank, Zip code can't be blank, and Zip code is not a number")
+    expect(page).to have_content("Name can't be blank, Street address can't be blank, City can't be blank, State can't be blank, Description can't be blank, Zip code can't be blank, and Zip code is not a number")
     expect(page).to have_button('Submit')
   end
 end
