@@ -14,7 +14,6 @@ RSpec.describe 'admin applications show page' do
     expect(page).to have_button("Approve")
     click_button("Approve")
     expect(page).to have_content("Application Status: Approved")
-    expect(page).to have_content("Application Status: #{application.status}")
   end
 
   it 'does not have a button to approve an adoption that has already been approved, instead I see the app status: Approved' do

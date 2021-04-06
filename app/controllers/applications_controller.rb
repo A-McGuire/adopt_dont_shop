@@ -25,7 +25,6 @@ class ApplicationsController < ApplicationController
   end
 
   def update
-    binding.pry
     application = Application.find(params[:id])
     application.update(application_params)
     redirect_to "/applications/#{application.id}"
