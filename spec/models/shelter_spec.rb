@@ -29,7 +29,7 @@ RSpec.describe Shelter, type: :model do
         expect(Shelter.search("Fancy")).to eq([@shelter_3])
       end
     end
-
+    
     describe '#order_by_recently_created' do
       it 'returns shelters with the most recently created first' do
         expect(Shelter.order_by_recently_created).to eq([@shelter_3, @shelter_2, @shelter_1])
@@ -39,6 +39,12 @@ RSpec.describe Shelter, type: :model do
     describe '#order_by_number_of_pets' do
       it 'orders the shelters by number of pets they have, descending' do
         expect(Shelter.order_by_number_of_pets).to eq([@shelter_1, @shelter_3, @shelter_2])
+      end
+
+      describe '#order_by_name_desc' do
+        it 'orders shelters in reverse alphabetical order by name' do
+          expect(Shelter.order_by_name_desc).to eq([@shelter_2, @shelter_3, @shelter_1])
+        end
       end
     end
   end
