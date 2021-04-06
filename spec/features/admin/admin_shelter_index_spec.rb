@@ -10,8 +10,7 @@ RSpec.describe "Admin shelter index page" do
     shelter_3.pets.create(name: 'Lucille Bald', breed: 'sphynx', age: 8, adoptable: true)
 
     visit "/admin/shelters"
-
-    (shelter_2).should appear_before(shelter_3)
-    (shelter_1).should appear_before(shelter_1)
+    expect(shelter_2.name).to appear_before(shelter_3.name)
+    expect(shelter_3.name).to appear_before(shelter_1.name)
   end
 end
