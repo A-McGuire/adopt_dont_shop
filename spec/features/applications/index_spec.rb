@@ -27,25 +27,6 @@ RSpec.describe "the Applications index page" do
     expect(page).to have_content(pet1.name)
     expect(page).to have_content(pet3.name)
     expect(page).to have_content(pet2.name)
-    
-
-    # within("#playlist-#{rock.id}") do
-    #   expect(page).to have_content(rock.name)
-    #   expect(page).to have_content(place.title)
-    #   expect(page).to have_content(breadbox.title)
-    #   expect(page).to have_content(r_and_c.title)
-    # end
-
-    # within("#playlist-#{uplifting_sound.id}") do
-    #   expect(page).to have_content(uplifting_sound.name)
-    #   expect(page).to have_content(purple.title)
-    # end
-
-    # within("#playlist-#{jams.id}") do
-    #   expect(page).to have_content(jams.name)
-    #   expect(page).to have_content(purple.title)
-    #   expect(page).to have_content(place.title)
-    # end
   end
 
   it "should have a link to each pets show page. the link is the pets name" do 
