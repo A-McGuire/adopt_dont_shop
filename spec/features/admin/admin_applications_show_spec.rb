@@ -7,16 +7,18 @@ RSpec.describe 'admin applications show page' do
     shelter = Shelter.create(name: 'Aurora shelter', city: 'Aurora, CO', foster_program: false, rank: 9)
     pet1 = Pet.create(adoptable: true, age: 1, breed: 'sphynx', name: 'Lucille Bald', shelter_id: shelter.id)
     
-    PetApplication.create!(pet: pet1, application: application)
+    application.pets << pet1
+    # PetApplication.create!(pet: pet1, application: application)
 
     visit "/admin/applications/#{application.id}"
-
+    
     expect(page).to have_button("Approve")
     click_button("Approve")
+    # save_and_open_page
     expect(page).to have_content("Application Status: Approved")
   end
 
-  it 'does not have a button to approve an adoption that has already been approved, instead I see the app status: Approved' do
+  # it 'does not have a button to approve an adoption that has already been approved, instead I see the app status: Approved' do
 
-  end
+  # end
 end

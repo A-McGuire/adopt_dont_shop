@@ -1,14 +1,22 @@
 <h1>Admin: Application <%= @application.id %></h1>
 
+
 <section>
   <% @application.pets.each do |pet| %>
-    <%= pet.name %>
+    <%= pet.name %><br>
+    pet id: <%= pet.id %><br>
+    pet app id: <%= pet.pet_applications[0].id %><br>
+    pet app status: <%= pet.pet_applications[0].status %><br>
 
-    <% if @application.status == "In Progress" %>
-      <%= button_to "Approve", "/admin/applications/#{@application.id}", params: {status: "Approved"}, method: :patch %>
+    <% if pet.pet_applications[0].status == "Pending" %>
+      <%= button_to "Approve", "/admin/applications/#{@application.id}", params: {app_status: "Approved"}, method: :patch %>
     <% end %>
+  <% end %>
 
-    <% if @application.status == "Approved" %>
-      Application Status: <%= @application.status %><br>
+  <% @application.pets.each do |pet| %>
+    <% if pet.pet_applications[0].status == "Approved" %>
+    
+      <%= pet.name %>
+      Application Status: <%= pet.pet_applications[0].status %><br>
     <% end %>
   <% end %>
