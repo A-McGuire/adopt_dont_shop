@@ -16,9 +16,9 @@ RSpec.describe PetApplication, type: :model do
         pet2 = Pet.create!(adoptable: true, age: 5, breed: 'shiba', name: 'Spinach', shelter_id: shelter.id)
         pet_app_1 = PetApplication.create!(pet: pet1, application: application)
         pet_app_2 = PetApplication.create!(pet: pet2, application: application)
-
-        expect(PetApplication.find_pet_application(pet1, application).to eq(pet_app_1))
-        expect(PetApplication.find_pet_application(pet2, application).to eq(pet_app_2))
+        
+        expect(PetApplication.find_pet_application(pet1, application)).to eq(pet_app_1)
+        expect(PetApplication.find_pet_application(pet2, application)).to eq(pet_app_2)
       end
     end
   end
