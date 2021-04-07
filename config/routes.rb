@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   patch '/applications/:id', to: 'applications#update'
 
   namespace :admin do
+    resources :applications, only: [:show, :update]
     resources :shelters, only: [:index]
   end
 end

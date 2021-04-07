@@ -1,4 +1,3 @@
-
 <section> 
   Name: <%= @application.name%><br>
   Address: <%= @application.street_address%>
@@ -22,7 +21,7 @@
       <%= f.submit "Search" %>
     <% end %>
 
-    <% if params[:search] != nil %>
+    <% if params[:search] %>
       <% @pets.each do |pet|%>
         <h3><%= pet.name %></h3>
         <%= button_to "Adopt this Pet", "/applications/#{@application.id}", params: {adopt: pet}, method: :get%>
@@ -33,7 +32,7 @@
       <% end %>
     <% end %>
     
-    <% if params[:adopt] != nil %>
+    <% if params[:adopt] %>
       <% @pets_to_adopt.each do |pet| %>
         <% pet.name %>
       <% end %>
