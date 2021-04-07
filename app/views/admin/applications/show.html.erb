@@ -5,16 +5,14 @@
   <% @application.pets.each do |pet| %>
     <%= pet.name %><br>
     pet id: <%= pet.id %><br>
-
-    <% if @application.pet_applications[0].status == "Pending" %>
+    
+    <% if PetApplication.find_pet_application(pet, @application).status == "Pending" %>
       <%= button_to "Approve", "/admin/applications/#{@application.id}", params: {app_status: "Approved", pet: pet}, method: :patch %>
     <% end %>
-  <% end %>
 
-  <% @application.pets.each do |pet| %>
-    <% if @application.pet_applications[0].status == "Approved" %>
-    
+    <% if PetApplication.find_pet_application(pet, @application).status == "Approved" %>
       <%= pet.name %>
-      Application Status: <%= @application.pet_applications[0].status %><br>
+      Application Status: <%= PetApplication.find_pet_application(pet, @application).status %><br>
     <% end %>
   <% end %>
+<section>
