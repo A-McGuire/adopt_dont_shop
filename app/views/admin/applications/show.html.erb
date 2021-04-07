@@ -5,11 +5,10 @@
     <%= pet.name %>
 
     <% if @application.status == "In Progress" %>
-      <%= button_to "Approve", "/admin/applications/#{@application.id}", params: {status: "Approved"}, method: :patch%>
+      <%= button_to "Approve", "/admin/applications/#{@application.id}", params: {status: "Approved"}, method: :patch %>
     <% end %>
 
     <% if @application.status == "Approved" %>
       Application Status: <%= @application.status %><br>
     <% end %>
   <% end %>
-</section>
