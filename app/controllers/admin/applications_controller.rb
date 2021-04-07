@@ -8,8 +8,6 @@ class Admin::ApplicationsController < ApplicationController
     pet_application = PetApplication.find_pet_application(params[:pet], application)
     pet_application.update(status: params[:app_status])
     redirect_to "/admin/applications/#{application.id}"
-    # pet_application_id = application.pet_applications[0].id
-    # pet_application = PetApplication.find(pet_application_id)
   end
 
   private
