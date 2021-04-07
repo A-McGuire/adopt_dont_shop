@@ -5,18 +5,18 @@
   <% @application.pets.each do |pet| %>
     <%= pet.name %><br>
     pet id: <%= pet.id %><br>
-    pet app id: <%= pet.pet_applications[0].id %><br>
-    pet app status: <%= pet.pet_applications[0].status %><br>
+    pet app id: <%= @application.pet_applications[0].id %><br>
+    pet app status: <%= @application.pet_applications[0].status %><br>
 
-    <% if pet.pet_applications[0].status == "Pending" %>
+    <% if @application.pet_applications[0].status == "Pending" %>
       <%= button_to "Approve", "/admin/applications/#{@application.id}", params: {app_status: "Approved"}, method: :patch %>
     <% end %>
   <% end %>
 
   <% @application.pets.each do |pet| %>
-    <% if pet.pet_applications[0].status == "Approved" %>
+    <% if @application.pet_applications[0].status == "Approved" %>
     
       <%= pet.name %>
-      Application Status: <%= pet.pet_applications[0].status %><br>
+      Application Status: <%= @application.pet_applications[0].status %><br>
     <% end %>
   <% end %>
