@@ -1,4 +1,4 @@
-<h1>Admin: Application ID: <%= @application.id %></h1>
+<h1>Admin: Application <%= @application.id %></h1>
 
 <section>
   <% @application.pets.each do |pet| %>
@@ -9,7 +9,7 @@
     <% end %>
 
     <% if @application.status == "Approved" %>
-      Application Status: <%= @application.status %>
+      Application Status: <%= @application.status %><br>
     <% end %>
   <% end %>
 </section>
