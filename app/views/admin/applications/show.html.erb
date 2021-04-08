@@ -3,22 +3,24 @@
 
 <section>
   <% @application.pets.each do |pet| %>
-    <%= pet.name %><br>
-    pet id: <%= pet.id %><br>
-    
-    <% if PetApplication.find_pet_application(pet, @application).status == "Pending" %>
-      <%= button_to "Approve", "/admin/applications/#{@application.id}", params: {app_status: "Approved", pet: pet}, method: :patch %>
-      <%= button_to "Reject", "/admin/applications/#{@application.id}", params: {app_status: "Rejected", pet: pet}, method: :patch %>
-    <% end %>
+    <section id=pet-<%pet.id%>>
+      <%= pet.name %><br>
+      pet id: <%= pet.id %><br>
+      
+      <% if PetApplication.find_pet_application(pet, @application).status == "Pending" %>
+        <%= button_to "Approve", "/admin/applications/#{@application.id}", params: {app_status: "Approved", pet: pet}, method: :patch %>
+        <%= button_to "Reject", "/admin/applications/#{@application.id}", params: {app_status: "Rejected", pet: pet}, method: :patch %>
+      <% end %>
 
-    <% if PetApplication.find_pet_application(pet, @application).status == "Approved" %>
-      <%= pet.name %>
-      Application Status: <%= PetApplication.find_pet_application(pet, @application).status %><br>
-    <% end %>
+      <% if PetApplication.find_pet_application(pet, @application).status == "Approved" %>
+        <%= pet.name %>
+        Application Status: <%= PetApplication.find_pet_application(pet, @application).status %><br>
+      <% end %>
 
-    <% if PetApplication.find_pet_application(pet, @application).status == "Rejected" %>
-      <%= pet.name %>
-      Application Status: <%= PetApplication.find_pet_application(pet, @application).status %><br>
-    <% end %>
+      <% if PetApplication.find_pet_application(pet, @application).status == "Rejected" %>
+        <%= pet.name %>
+        Application Status: <%= PetApplication.find_pet_application(pet, @application).status %><br>
+      <% end %>
+    </section>
   <% end %>
 <section>
