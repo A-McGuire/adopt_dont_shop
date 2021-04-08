@@ -9,7 +9,3 @@ class Application < ApplicationRecord
     self.pet_applications.find_by(pet: pet)
   end
 end
-
- #  def self.find_pet_application(pet, application)
-  #   self.find_by(pet: pet, application: application)
-  # end
