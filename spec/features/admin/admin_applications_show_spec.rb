@@ -74,10 +74,11 @@ RSpec.describe 'admin applications show page' do
     shelter = Shelter.create!(name: 'Aurora shelter', city: 'Aurora, CO', foster_program: false, rank: 9)
     pet1 = Pet.create!(adoptable: true, age: 1, breed: 'sphynx', name: 'Lucille Bald', shelter_id: shelter.id)
     
-    application1.pets.push(pet1)
-    application2.pets.push(pet1)
+    application1.pets << pet1
+    application2.pets << pet1
 
     visit "/admin/applications/#{application1.id}"
+
     within("#pet-#{pet1.id}") do
       click_button("Approve")
       expect(page).to have_content("Application Status: Approved")
