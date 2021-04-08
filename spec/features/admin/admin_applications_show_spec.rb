@@ -51,5 +51,15 @@ RSpec.describe 'admin applications show page' do
       expect(page).to have_content("Application Status: Approved")
       expect(page).to_not have_button("Approve")
     end
+
+    within("#pet-#{pet2.id}") do
+      expect(page).to have_button("Approve")
+      expect(page).to_not have_content("Application Status: Approved")
+    end
+
+    within("#pet-#{pet3.id}") do
+      expect(page).to have_button("Approve")
+      expect(page).to_not have_content("Application Status: Approved")
+    end
   end
 end
