@@ -3,10 +3,9 @@
 <section>
   <% @application.pets.each do |pet| %>
     <section id="pet-<%= pet.id %>">
-      <%= pet.name %><br>
-      pet id: <%= pet.id %><br>
-      pet id: <%= pet.age %><br>
-      pet id: <%= pet.breed %><br>
+      Name: <%= pet.name %><br>
+      Age: <%= pet.age %><br>
+      Breed: <%= pet.breed %><br>
       
       <% if @application.find_pet_application(pet).status == "Pending" %>
         <%= button_to "Approve", "/admin/applications/#{@application.id}", 
