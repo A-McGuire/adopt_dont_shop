@@ -1,10 +1,16 @@
 class Admin::ApplicationsController < ApplicationController
-  def show
+  before_action(:set_application, only: [:show, :update])
+  
+  def set_application
     @application = Application.find(params[:id])
+  end
+  
+  def show
+    @application
   end
 
   def update
-    application = Application.find(params[:id]) 
+    @application
     pet_application = application.find_pet_application(params[:pet]) 
     pet_application.update(status: params[:app_status]) #Should live in pet_applications_controller?
     redirect_to "/admin/applications/#{application.id}"
