@@ -6,8 +6,10 @@ RSpec.describe 'admin applications show page' do
     
     shelter = Shelter.create!(name: 'Aurora shelter', city: 'Aurora, CO', foster_program: false, rank: 9)
     pet1 = Pet.create!(adoptable: true, age: 1, breed: 'sphynx', name: 'Lucille Bald', shelter_id: shelter.id)
+    pet2 = Pet.create!(adoptable: true, age: 1, breed: 'Good', name: 'Good Pup', shelter_id: shelter.id)
     
     application.pets << pet1
+    application.pets << pet2
 
     visit "/admin/applications/#{application.id}"
     within("#pet-#{pet1.id}") do 
@@ -22,8 +24,10 @@ RSpec.describe 'admin applications show page' do
     
     shelter = Shelter.create!(name: 'Aurora shelter', city: 'Aurora, CO', foster_program: false, rank: 9)
     pet1 = Pet.create!(adoptable: true, age: 1, breed: 'sphynx', name: 'Lucille Bald', shelter_id: shelter.id)
+    pet2 = Pet.create!(adoptable: true, age: 1, breed: 'good', name: 'Good pup', shelter_id: shelter.id)
     
     application.pets << pet1
+    application.pets << pet2
 
     visit "/admin/applications/#{application.id}"
 
@@ -69,8 +73,6 @@ RSpec.describe 'admin applications show page' do
   
     shelter = Shelter.create!(name: 'Aurora shelter', city: 'Aurora, CO', foster_program: false, rank: 9)
     pet1 = Pet.create!(adoptable: true, age: 1, breed: 'sphynx', name: 'Lucille Bald', shelter_id: shelter.id)
-    pet2 = Pet.create!(adoptable: true, age: 2, breed: 'collie', name: 'fido', shelter_id: shelter.id)
-    pet3 = Pet.create!(adoptable: true, age: 3, breed: 'lab', name: 'max', shelter_id: shelter.id)
     
     application1.pets.push(pet1)
     application2.pets.push(pet1)
