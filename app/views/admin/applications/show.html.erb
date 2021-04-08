@@ -7,19 +7,18 @@
       <%= pet.name %><br>
       pet id: <%= pet.id %><br>
       
-      <% if PetApplication.find_pet_application(pet, @application).status == "Pending" %>
-        <%= button_to "Approve", "/admin/applications/#{@application.id}", params: {app_status: "Approved", pet: pet}, method: :patch %>
-        <%= button_to "Reject", "/admin/applications/#{@application.id}", params: {app_status: "Rejected", pet: pet}, method: :patch %>
-      <% end %>
+      <% if @application.find_pet_application(pet).status == "Pending" %>
+        <%= button_to "Approve", "/admin/applications/#{@application.id}", 
+          params: {app_status: "Approved", pet: pet}, 
+          method: :patch %>
 
-      <% if PetApplication.find_pet_application(pet, @application).status == "Approved" %>
-        <%= pet.name %>
-        Application Status: <%= PetApplication.find_pet_application(pet, @application).status %><br>
-      <% end %>
+        <%= button_to "Reject", "/admin/applications/#{@application.id}", 
+          params: {app_status: "Rejected", pet: pet}, 
+          method: :patch %>
 
-      <% if PetApplication.find_pet_application(pet, @application).status == "Rejected" %>
+      <% else %>
         <%= pet.name %>
-        Application Status: <%= PetApplication.find_pet_application(pet, @application).status %><br>
+        Application Status: <%= @application.find_pet_application(pet).status %><br>
       <% end %>
     </section>
   <% end %>
