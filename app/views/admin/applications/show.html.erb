@@ -1,11 +1,13 @@
-<h1>Admin: Application <%= @application.id %></h1>
-<p>app status: <%= @application.status %></p>
+<h1>Admin</h1>
+<p>Application ID: <%= @application.id %></p>
+<h3>Pets:</h3>
 
 <section>
   <% @application.pets.each do |pet| %>
     <section id="pet-<%= pet.id %>">
-      <%= pet.name %><br>
-      pet id: <%= pet.id %><br>
+      Name: <%= pet.name %><br>
+      Age: <%= pet.age %><br>
+      Breed: <%= pet.breed %><br>
       
       <% if @application.find_pet_application(pet).status == "Pending" %>
         <%= button_to "Approve", "/admin/applications/#{@application.id}", 
@@ -17,9 +19,8 @@
           method: :patch %>
 
       <% else %>
-        <%= pet.name %>
         Application Status: <%= @application.find_pet_application(pet).status %><br>
       <% end %>
-    </section>
+    </section><br>
   <% end %>
 <section>
