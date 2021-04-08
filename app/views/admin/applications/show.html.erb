@@ -3,7 +3,7 @@
 
 <section>
   <% @application.pets.each do |pet| %>
-    <section id=pet-<%pet.id%>>
+    <section id="pet-<%= pet.id %>">
       <%= pet.name %><br>
       pet id: <%= pet.id %><br>
       
