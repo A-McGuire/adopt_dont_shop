@@ -136,7 +136,6 @@ RSpec.describe "the Applications show page" do
     expect(page).to have_content("#{pet1.name}")
     click_button "Adopt this Pet"
     expect(page).to have_content("#{pet1.name}")
-    save_and_open_page
     expect(page).to have_button("Submit Application")
     
     fill_in "Search", with: "#{pet2.name}"
