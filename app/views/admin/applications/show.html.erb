@@ -9,7 +9,9 @@
       Age: <%= pet.age %><br>
       Breed: <%= pet.breed %><br>
       
-      <% if @application.find_pet_application(pet).status == "Pending" %>
+      <% if @application.find_pet_application(pet).status == "Pending" || 
+      @application.find_pet_application(pet).status == "In Progress" %>
+      
         <%= button_to "Approve", "/admin/applications/#{@application.id}", 
           params: {app_status: "Approved", pet: pet}, 
           method: :patch %>
