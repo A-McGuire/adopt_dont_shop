@@ -6,7 +6,7 @@
   <%= @application.zip_code%><br>
   Description: <%= @application.description%><br>
   <% @application.pets.each do |pet|%>
-    Pet: <%= link_to "#{pet.name}", "/applications/#{@application.id}/pets/#{pet.id}" %>
+    Pet: <%= link_to "#{pet.name}", "/applications/#{@application.id}/pets/#{pet.id}" %><br>
   <% end %><br>
   Application Status: <%= @application.status%><br>
 </section>
@@ -24,19 +24,15 @@
     <% if params[:search] %>
       <% @pets.each do |pet|%>
         <h3><%= pet.name %></h3>
-        <%= button_to "Adopt this Pet", "/applications/#{@application.id}", params: {adopt: pet}, method: :get%>
+        <%= button_to "Adopt this Pet", "/applications/#{@application.id}", params: {adopt: pet}, method: :post%>
         <p>Age: <%= pet.age %></p>
         <p>Breed: <%= pet.breed %></p>
         <p>Adoptable: </p>
         <p>You can find <%= pet.name %> at <%= pet.shelter_name %>!</p>
       <% end %>
     <% end %>
-    
-    <% if params[:adopt] %>
-      <% @pets_to_adopt.each do |pet| %>
-        <% pet.name %>
-      <% end %>
 
+    <% if @application.pets.present? %>
       <%= button_to "Submit Application", "/applications/#{@application.id}", params: {status: "Pending"}, method: :patch%>
     <% end %>
   <% end %>
